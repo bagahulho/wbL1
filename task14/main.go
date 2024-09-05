@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"reflect"
 )
 
 func main() {
@@ -11,10 +12,8 @@ func main() {
 		c bool
 	)
 	ch := make(chan int)
-	fmt.Println(getType(a))
-	fmt.Println(getType(b))
-	fmt.Println(getType(c))
-	fmt.Println(getType(ch))
+	fmt.Printf("Using reflect: %s, %s, %s, %s\n", reflect.TypeOf(a), reflect.TypeOf(b), reflect.TypeOf(c), reflect.TypeOf(ch))
+	fmt.Printf("Using switch: %s, %s, %s, %s\n", getType(a), getType(b), getType(c), getType(ch))
 }
 
 func getType(n interface{}) string {
